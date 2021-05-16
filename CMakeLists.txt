@@ -17,8 +17,16 @@ if (NOT inih_POPULATED)
 	FetchContent_Populate(inih)
 endif()
 
+IF (WIN32)
+	SET(GUI_TYPE WIN32)
+ENDIF (WIN32)
+IF (APPLE)
+	SET(GUI_TYPE MACOSX_BUNDLE)
+ENDIF (APPLE)
+
 add_executable(
 	zdl
+	${GUI_TYPE}
 	ZDLAboutDialog.cpp
 	ZDLAdvancedMultiplayerDialog.cpp
 	ZDLDMFlagCheckbox.cpp
@@ -46,6 +54,7 @@ add_executable(
 	qzdl.cpp
 	${PROJECT_SOURCE_DIR}/zdlconf/zdlconf.cpp
 	${inih_SOURCE_DIR}/ini.c
+	res/zdl.rc
 )
 
 target_include_directories(zdl PRIVATE ${PROJECT_SOURCE_DIR}/zdlconf)
