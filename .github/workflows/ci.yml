@@ -42,11 +42,14 @@ jobs:
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
+    - name: windeployqt
+      run: ../Qt/bin/windeployqt build/Release
+
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: build
-        path: build
+        path: build/Release
 
 
 #     - name: Test
