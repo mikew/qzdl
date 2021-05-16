@@ -43,7 +43,7 @@ jobs:
       run: cmake --build ${{ github.workspace }}/build --config ${{ env.BUILD_TYPE }}
 
     - name: windeployqt
-      run: ${{ env.Qt5_Dir }}/bin/windeployqt build/Release
+      run: ${{ env.Qt5_Dir }}/bin/windeployqt --no-webkit2 --no-compiler-runtime --no-system-d3d-compiler --no-translations --no-opengl-sw --no-plugins build/Release
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
