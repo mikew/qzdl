@@ -54,6 +54,7 @@ add_executable(
 	qzdl.cpp
 	${PROJECT_SOURCE_DIR}/zdlconf/zdlconf.cpp
 	${inih_SOURCE_DIR}/ini.c
+	res/zdl.rc
 )
 
 target_include_directories(zdl PRIVATE ${PROJECT_SOURCE_DIR}/zdlconf)
